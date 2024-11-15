@@ -1,17 +1,49 @@
 import { Text, View, SafeAreaView, StyleSheet } from "react-native";
 import { Link } from "expo-router";
 import React, { useState } from "react";
+import { LineChart } from "react-native-gifted-charts";
+import wordsLearned from "./data/wordsLearned.json";
 
 export default function Index() {
   const [date, setDate] = useState(new Date());
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+  const graphData = wordsLearned.map((word, index) => {
+    return {
+      value: word.count,
+      label: word.weekday,
+    };
+  });
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer} >
         <Text style={styles.titleDate} >{date.getDate()}, {months[date.getMonth()].slice(0, 3)}.</Text>
         <Text style={styles.titleWeekday} >{weekdays[date.getDay()]}</Text>
+      </View>
+      <View style={styles.graphContainer} >
+        <View style={styles.graphTitleContainer} >
+          <Text style={styles.graphTitle} >
+            Words Learned
+          </Text>
+          <View style={styles.graphTitleContainerRight} >
+            <Text style={styles.graphWordCountText} >
+              {graphData[graphData.length - 1].value}
+            </Text>
+            <Text style={styles.graphSubtitleText} >
+              Total
+            </Text>
+          </View>
+        </View>
+        <LineChart 
+          areaChart 
+          data={graphData}
+          width={240}
+          isAnimated
+          color="#175A26"
+          noOfSections={5}
+        />
       </View>
       <View style={styles.buttonListContainer} >
       <Link
@@ -30,15 +62,33 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-start',
+    alignItems: 'center',
     width: '100%',
     height: '100%',
     padding: 40,
+    backgroundColor: '#EDEDED',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   titleContainer: {
     top: 0,
     left: 0,
     padding: 20,
     width: '100%',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   titleDate: {
     fontSize: 20,
@@ -47,6 +97,43 @@ const styles = StyleSheet.create({
   titleWeekday: {
     fontSize: 40,
     fontWeight: 'bold',
+  },
+  graphContainer: {
+    flex: 1,
+    width: '80%',
+    padding: 20,
+    borderRadius: 20,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 5,
+  },
+  graphTitleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 30,
+  },
+  graphTitle: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+  graphTitleContainerRight: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+  },
+  graphWordCountText: {
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  graphSubtitleText: {
+    fontSize: 16,
+    color: 'gray',
   },
   buttonListContainer: {
     flex: 1,
@@ -60,5 +147,13 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });

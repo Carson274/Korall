@@ -1,0 +1,30 @@
+[
+  {
+    "count": 15,
+    "weekday": "Mon"
+  },
+  {
+    "count": 15,
+    "weekday": "Tue"
+  },
+  {
+    "count": 20,
+    "weekday": "Wed"
+  },
+  {
+    "count": 22,
+    "weekday": "Thu"
+  },
+  {
+    "count": 22,
+    "weekday": "Fri"
+  },
+  {
+    "count": 22,
+    "weekday": "Sat"
+  },
+  {
+    "count": 26,
+    "weekday": "Sun"
+  }
+]
