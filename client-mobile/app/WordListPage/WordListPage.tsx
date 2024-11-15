@@ -10,12 +10,13 @@ export default function MainPage() {
   const [words, setWords] = useState<Word[]>(wordData)
   const [language, setLanguage] = useState('eng')
   const [modalVisible, setModalVisible] = useState(false)
+  const [selectedWord, setSelectedWord] = useState<Word | null>(null)
 
   const toggleModal = () => { setModalVisible(!modalVisible) }
 
   return (
     <View style={styles.container}>
-      <WordList words={words} language={language} toggleModal={toggleModal} />
+      <WordList words={words} language={language} toggleModal={toggleModal} setSelectedWord={setSelectedWord} />
       <LanguageToggle language={language} setLanguage={setLanguage} />
         <Modal
           animationType="fade"
@@ -28,7 +29,7 @@ export default function MainPage() {
         <TouchableWithoutFeedback onPress={() => setModalVisible(false)} >
           <View style={styles.modalContainer} >
             <TouchableWithoutFeedback>
-              <WordCard />
+              <WordCard word={selectedWord} />
             </TouchableWithoutFeedback>
           </View>
         </TouchableWithoutFeedback>

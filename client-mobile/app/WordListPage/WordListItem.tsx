@@ -2,9 +2,14 @@ import React from 'react'
 import { Word } from '../types'
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 
-export default function WordListItem({ word, language, toggleModal } : { word: Word, language: string, toggleModal: () => void }) {
+export default function WordListItem({ word, language, toggleModal, setSelectedWord } : { word: Word, language: string, toggleModal: () => void, setSelectedWord: (word: Word) => void }) {
+  const handlePress = () => {
+    setSelectedWord(word)
+    toggleModal()
+  }
+
   return (
-    <Pressable onPress={toggleModal}>
+    <Pressable onPress={handlePress} >
       <View style={styles.container}>
         <Text style={styles.word}>{word.name[language]}</Text>
       </View>
