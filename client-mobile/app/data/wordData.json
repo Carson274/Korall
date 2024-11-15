@@ -1,0 +1,28 @@
+[
+  {
+    "name": {
+      "eng": "apple",
+      "kor": "사과"
+    },
+    "definition": "A fruit that is red or green and round.",
+    "examples": [
+      {
+        "eng": "I like apples.",
+        "kor": "나는 사과를 좋아해."
+      }
+    ]
+  },
+  {
+    "name": {
+      "eng": "banana",
+      "kor": "바나나"
+    },
+    "definition": "A fruit that is yellow and long.",
+    "examples": [
+      {
+        "eng": "I like bananas.",
+        "kor": "나는 바나나를 좋아해."
+      }
+    ]
+  }
+]
