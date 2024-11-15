@@ -16,6 +16,7 @@ export default function LanguageToggle({ language, setLanguage } : { language: s
       <Switch 
         value={toggle}
         onValueChange={handleToggle}
+        trackColor={{ false: 'lightgray', true: 'green' }}
       />
     </View>
   )

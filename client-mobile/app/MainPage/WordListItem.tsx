@@ -1,12 +1,14 @@
 import React from 'react'
 import { Word } from '../types'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
 
-export default function WordListItem({ word, language } : { word: Word, language: string }) {
+export default function WordListItem({ word, language, toggleModal } : { word: Word, language: string, toggleModal: () => void }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.word}>{word.name[language]}</Text>
-    </View>
+    <Pressable onPress={toggleModal}>
+      <View style={styles.container}>
+        <Text style={styles.word}>{word.name[language]}</Text>
+      </View>
+    </Pressable>
   )
 }
 
