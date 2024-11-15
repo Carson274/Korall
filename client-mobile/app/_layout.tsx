@@ -3,7 +3,8 @@ import { Stack } from "expo-router";
 export default function RootLayout() {
   return (
     <Stack>
-      <Stack.Screen name="WordListPage" options={{ title: "Words" }} />
+      <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
+      <Stack.Screen name="WordsPage" options={{ title: "Words" }} />
     </Stack>
   );
 }

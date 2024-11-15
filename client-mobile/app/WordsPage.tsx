@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { View, StyleSheet, Modal, TouchableWithoutFeedback } from 'react-native'
-import wordData from '../data/wordData.json'
-import { Word } from '../types.js'
-import WordList from './WordList'
-import LanguageToggle from './LanguageToggle'
-import WordCard from './WordCard'
+import wordData from './data/wordData.json'
+import { Word } from './types.js'
+import WordList from './WordsPage/WordList'
+import LanguageToggle from './WordsPage/LanguageToggle'
+import WordCard from './WordsPage/WordCard'
 
 export default function MainPage() {
   const [words, setWords] = useState<Word[]>(wordData)
