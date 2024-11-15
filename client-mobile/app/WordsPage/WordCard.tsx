@@ -11,6 +11,21 @@ export default function WordCard({ word } : { word: Word | null }) {
       <Text style={styles.wordNameEnglish} >
         {word?.name.eng}
       </Text>
+      <Text style={styles.wordDefinition} >
+        | {word?.definition}
+      </Text>
+      <Text style={styles.wordExamplesTitle} >
+        Examples (예시):
+      </Text>
+      <View style={styles.examplesContainer} >
+        {word?.examples.map((example, index) => (
+          <Text key={index} style={styles.wordExample} >
+            {example.kor}
+            {'\n'}
+            {example.eng}
+          </Text>
+        ))}
+      </View>
     </View>
   )
 }
@@ -19,8 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     width: '90%',
-    height: '60%',
-    padding: 30,
+    padding: 24,
     backgroundColor: 'white',
     borderRadius: 20,
   },
@@ -31,5 +45,22 @@ const styles = StyleSheet.create({
   wordNameEnglish: {
     fontSize: 20,
     color: 'gray',
+    marginBottom: 8,
+  },
+  wordDefinition: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  wordExamplesTitle: {
+    fontSize: 18,
+    marginBottom: 8,
+    fontWeight: 'bold',
+  },
+  examplesContainer: {
+    flexDirection: 'column',
+    gap: 10,
+  },
+  wordExample: {
+    fontSize: 16,
   },
 })
