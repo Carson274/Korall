@@ -5,6 +5,7 @@ export interface Word {
 }
 
 export interface Name {
+  [key: string]: string
   eng: string
   kor: string
 }

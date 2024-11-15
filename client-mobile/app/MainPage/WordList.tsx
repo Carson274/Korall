@@ -1,15 +1,15 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, ScrollView } from 'react-native'
 import { Word } from '../types.js'
 import WordListItem from './WordListItem'
 
-export default function WordList({ words } : { words: Word[] }) {
+export default function WordList({ words, language } : { words: Word[], language: string }) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {words.map((word, index) => (
-        <WordListItem key={index} word={word} />
+        <WordListItem key={index} word={word} language={language} />
       ))}
-    </View>
+    </ScrollView>
   )
 }
 
