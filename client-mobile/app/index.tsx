@@ -3,8 +3,46 @@ import { Link } from "expo-router";
 import React, { useState } from "react";
 import { LineChart } from "react-native-gifted-charts";
 import wordsLearned from "./data/wordsLearned.json";
+import {
+  useFonts,
+  Nunito_200ExtraLight,
+  Nunito_300Light,
+  Nunito_400Regular,
+  Nunito_500Medium,
+  Nunito_600SemiBold,
+  Nunito_700Bold,
+  Nunito_800ExtraBold,
+  Nunito_900Black,
+  Nunito_200ExtraLight_Italic,
+  Nunito_300Light_Italic,
+  Nunito_400Regular_Italic,
+  Nunito_500Medium_Italic,
+  Nunito_600SemiBold_Italic,
+  Nunito_700Bold_Italic,
+  Nunito_800ExtraBold_Italic,
+  Nunito_900Black_Italic,
+} from '@expo-google-fonts/nunito';
 
 export default function Index() {
+  let [fontsLoaded] = useFonts({
+    Nunito_200ExtraLight,
+    Nunito_300Light,
+    Nunito_400Regular,
+    Nunito_500Medium,
+    Nunito_600SemiBold,
+    Nunito_700Bold,
+    Nunito_800ExtraBold,
+    Nunito_900Black,
+    Nunito_200ExtraLight_Italic,
+    Nunito_300Light_Italic,
+    Nunito_400Regular_Italic,
+    Nunito_500Medium_Italic,
+    Nunito_600SemiBold_Italic,
+    Nunito_700Bold_Italic,
+    Nunito_800ExtraBold_Italic,
+    Nunito_900Black_Italic,
+  });
+
   const [date, setDate] = useState(new Date());
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -19,7 +57,7 @@ export default function Index() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.titleContainer} >
-        <Text style={styles.titleDate} >{date.getDate()}, {months[date.getMonth()].slice(0, 3)}.</Text>
+        <Text style={styles.titleDate} >{date.getDate()}, {months[date.getMonth()].slice(0,3).toUpperCase()}</Text>
         <Text style={styles.titleWeekday} >{weekdays[date.getDay()]}</Text>
       </View>
       <View style={styles.lineBreakContainer} >
@@ -100,13 +138,13 @@ const styles = StyleSheet.create({
   },
   titleWeekday: {
     fontSize: 40,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito_700Bold',
   },
   lineBreakContainer: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'flex-end',
-    marginBottom: 20,
+    marginBottom: 40,
   },
   lineBreak: {
     width: '90%',
@@ -147,7 +185,7 @@ const styles = StyleSheet.create({
   },
   graphWordCountText: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontFamily: 'Nunito_700Bold',
   },
   graphSubtitleText: {
     fontSize: 16,
