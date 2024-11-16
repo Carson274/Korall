@@ -5,12 +5,16 @@ import { Word } from '../types.js'
 export default function WordCard({ word } : { word: Word | null }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.wordName} >
-        {word?.name.kor}
-      </Text>
-      <Text style={styles.wordNameEnglish} >
-        {word?.name.eng}
-      </Text>
+      <View style={styles.topContainer} >
+        <View style={styles.wordNameContainer} >
+          <Text style={styles.wordName} >
+            {word?.name.kor}
+          </Text>
+          <Text style={styles.wordNameEnglish} >
+            {word?.name.eng}
+          </Text>
+        </View>
+      </View>
       <Text style={styles.wordDefinition} >
         | {word?.definition}
       </Text>
@@ -37,6 +41,13 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: 'white',
     borderRadius: 20,
+  },
+  topContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  wordNameContainer: {
+    flexDirection: 'column',
   },
   wordName: {
     fontSize: 30,

@@ -18,5 +18,6 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'white',
     borderRadius: 10,
+    maxHeight: '60%',
   },
 })

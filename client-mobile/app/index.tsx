@@ -22,6 +22,9 @@ export default function Index() {
         <Text style={styles.titleDate} >{date.getDate()}, {months[date.getMonth()].slice(0, 3)}.</Text>
         <Text style={styles.titleWeekday} >{weekdays[date.getDay()]}</Text>
       </View>
+      <View style={styles.lineBreakContainer} >
+        <View style={styles.lineBreak} />
+      </View>
       <View style={styles.graphContainer} >
         <View style={styles.graphTitleContainer} >
           <Text style={styles.graphTitle} >
@@ -40,6 +43,7 @@ export default function Index() {
           areaChart 
           data={graphData}
           width={240}
+          height={180}
           isAnimated
           color="#175A26"
           noOfSections={5}
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     padding: 40,
-    backgroundColor: '#EDEDED',
+    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -98,9 +102,23 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
   },
+  lineBreakContainer: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    marginBottom: 20,
+  },
+  lineBreak: {
+    width: '90%',
+    height: 1,
+    backgroundColor: 'lightgray',
+    opacity: 0.5,
+  },
   graphContainer: {
     flex: 1,
-    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
     padding: 20,
     borderRadius: 20,
     backgroundColor: 'white',
@@ -109,13 +127,13 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 5,
+    shadowOpacity: 0.25,
+    shadowRadius: 30,
   },
   graphTitleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    width: '100%',
     marginBottom: 30,
   },
   graphTitle: {

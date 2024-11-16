@@ -12,24 +12,40 @@ export default function LanguageToggle({ language, setLanguage } : { language: s
 
   return (
     <View style={styles.container}>
-      <Text>Language</Text>
-      <Switch 
-        value={toggle}
-        onValueChange={handleToggle}
-        trackColor={{ false: 'lightgray', true: 'green' }}
-      />
+      <Text style={styles.languageText} >Language</Text>
+      <View style={styles.switchContainer} >
+        <Text>English</Text>
+        <Switch 
+          value={toggle}
+          onValueChange={handleToggle}
+          trackColor={{ false: 'lightgray', true: 'green' }}
+        />
+        <Text>Korean</Text>
+      </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderTopWidth: 1,
     borderTopColor: 'lightgray',
+  },
+  languageText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  switchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    gap: 10,
   },
 })
